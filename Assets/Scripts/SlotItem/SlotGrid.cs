@@ -6,14 +6,15 @@ public class SlotGrid : MonoBehaviour
 {
     private static SlotGrid instance = null;
 
+    public Slot slotAobj;
+    public Slot slotBobj;
+    public Slot slotCobj;
 
-    [SerializeField]
-    private GameObject slotPrefab;
+    //[SerializeField] private GameObject slotPrefab;
 
-    private int slotNumber = 3;
+    //private int slotNumber = 3;
 
-    [SerializeField]
-    Item[] allItems; // テスト用
+    //[SerializeField] Item[] allItems;
 
     [SerializeField]
     private List<Slot> allSlots;
@@ -51,6 +52,15 @@ public class SlotGrid : MonoBehaviour
     {
         allSlots = new List<Slot>(); // いったんリストを初期化
 
+        Slot slotA = slotAobj.GetComponent<Slot>();
+        Slot slotB = slotBobj.GetComponent<Slot>();
+        Slot slotC = slotCobj.GetComponent<Slot>();
+
+        allSlots.Add(slotA);
+        allSlots.Add(slotB);
+        allSlots.Add(slotC);
+
+        /*
         for (int i = 0; i < slotNumber; i++)
         {
             GameObject slotObj = Instantiate(slotPrefab, this.transform);
@@ -59,12 +69,17 @@ public class SlotGrid : MonoBehaviour
             // 生成のたびにallSrotsに追加
             allSlots.Add(slot);
         }
+        */
 
+        /*
         // TEST 全てのitemに対してforeachループを廻す
         foreach (var item in allItems)
         {
             AddItem(item);
         }
+        */
+        
+        
     }
 
     // allSlotsを順番に見ていき、空っぽのスロットにitemを追加する

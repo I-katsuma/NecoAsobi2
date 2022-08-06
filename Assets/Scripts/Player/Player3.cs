@@ -100,7 +100,7 @@ public class Player3 : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(stateNum);
+        //Debug.Log(stateNum);
 
         isGround = ground.IsGround();
         isHead = ground.IsGround();

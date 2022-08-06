@@ -6,12 +6,14 @@ using UnityEngine;
 public class Item : ScriptableObject 
 {
 
-    [SerializeField] private string itemName;
-    [SerializeField] private Sprite itemImage;
+    [SerializeField] private string itemName; // 名前
+    [SerializeField] private Sprite itemImage; // アイコン
 
     [SerializeField] private int itemId;
+    private int hpChange; // ヘルスPOINTチェンジ
 
     [SerializeField] ItemObject itemObjPrefab;
+    //[SerializeField] Transform itemDropPosition;
 
 
     public string MyItemName { get => itemName;}

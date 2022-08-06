@@ -10,7 +10,11 @@ public class Mapinitializer : MonoBehaviour
 
     private void Start() 
     {
-        item.GetItemObj().transform.SetParent(this.transform, false);    
+        for (int i = 0; i < 3; i++)
+        {
+            item.GetItemObj().transform.SetParent(this.transform, false); 
+        }
+           
     }
 
 }

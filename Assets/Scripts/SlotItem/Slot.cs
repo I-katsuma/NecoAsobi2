@@ -11,6 +11,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 
     public Item MyItem { get => item; private set => item = value; }
 
+    protected virtual void Start() 
+    {
+        if(MyItem==null) itemImage.color = new Color(0, 0, 0, 0);    
+    }
+
     public void SetItem(Item item)
     {
         MyItem = item;
@@ -26,7 +31,15 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    private Vector3 SetPlayerPosition() // 削除アイテム落下ポジション
+    {
+        // TODO: プレイヤーの頭上から落下するようにしたい
+        Vector3 num = new Vector3(5f, 5f, 0f);
+
+        return num;
+    }
+
+    public void OnPointerClick(PointerEventData eventData) // クリックしたとき呼ばれる
     {
         // MyItemの値がnullなら、メソッドを切り上げる
         if(MyItem == null)
@@ -36,7 +49,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         
         // アイテムをマップ上に配置
         GameObject itemObj = MyItem.GetItemObj();
-
+        itemObj.transform.SetPositionAndRotation(SetPlayerPosition(), Quaternion.identity); 
 
         itemObj.transform.SetParent(GameObject.Find("Items").transform, false);
 
